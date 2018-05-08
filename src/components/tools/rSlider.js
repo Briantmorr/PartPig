@@ -18,6 +18,7 @@
 		this.tipR			= null;
 		this.timeout		= null;
 		this.valRange		= false;
+		this.dragging 		= false;
 
 		this.values = {
 			start:	null,
@@ -164,8 +165,9 @@
 		createEvents(document, 'mousemove touchmove', this.move.bind(this));
 		createEvents(document, 'mouseup touchend touchcancel', this.drop.bind(this));
 
-		for (var i = 0, iLen = pointers.length; i < iLen; i++)
+		for (var i = 0, iLen = pointers.length; i < iLen; i++){
 			createEvents(pointers[i], 'mousedown touchstart', this.drag.bind(this));
+		}
 
 		for (var i = 0, iLen = pieces.length; i < iLen; i++)
 			createEvents(pieces[i], 'click', this.onClickPiece.bind(this));
@@ -178,6 +180,7 @@
 	RS.prototype.drag = function (e) {
 		e.preventDefault();
 
+		this.dragging = true;
 		if (this.conf.disabled) return;
 
 		var dir = e.target.getAttribute('data-dir');
@@ -207,7 +210,11 @@
 		}
 	};
 
-	RS.prototype.drop = function () {
+	RS.prototype.drop = function (e) {
+		if(this.dragging){
+			this.onClickPiece(e);
+			this.dragging = false;
+		}		
 		this.activePointer = null;
 	};
 

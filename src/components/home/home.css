@@ -1,0 +1,51 @@
+.homeMainContainer{
+	position: relative;
+	height: 87vh;
+	min-height: 500px;
+	width: 100%;
+}
+
+.scrollingBackground {
+	position: relative;
+	display: flex;
+	height: 100%;
+	overflow: hidden;
+}
+.scrollingImg{
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	background-position: top center;
+	margin: 0;
+	border-style: solid;
+	border-width: medium;
+	border-color: rgb(39, 39, 39);
+	border-top: none;
+	min-height: 100px;
+	
+}
+.scrollingImgColumn{
+	width: 100%;
+}
+.scrollingImgColumn:nth-child(odd){
+	top:-9%;
+	position:relative;
+}
+.shadow{
+    position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(rgba(0,0,0,.8) 0%, rgba(0, 0, 0, 0.541) 50%, rgba(0, 0, 0, 0.712) 100%);;
+}
+#welcomeMessage{
+	position: relative;
+	left: 50%;
+	top: 10%;
+	transform: translate(-50%, -50%);
+	font-size: 00%;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 2px black	;
+}

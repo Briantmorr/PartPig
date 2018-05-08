@@ -1,37 +1,42 @@
 html {
-    font-size: 1vmin;
-	font-family: Verdana, Geneva, sans-serif;
-	color: rgb(31, 31, 31);
+	font-size: 16px;
+    font-family: Verdana, Geneva, sans-serif;
+    color: rgb(31, 31, 31);
     overflow-x: hidden;
-	overflow-y: scroll;
-    height: 100vh;
-    
+    overflow-y: scroll;
+}
+a {
+	text-decoration: none;
 }
 
 body {
     position: relative;    
     width: 100%;
-    height: 100%;
     margin: 0px;
-	padding-bottom: 10vh;
-	background-color:  whitesmoke;
+    background-color:  whitesmoke;    
+    min-height: 600px;
+    min-width: 320px;
 }
 
 #root{
     width:100%;
-    height: 100%;
 }
 
 .mainContainer {
     width: 100%;
-	height: 100%;
-	min-height: 100%;
+	min-height: 100vh;
 }
 
 .container{
     width: 80%;
     height: 90%;  
     margin: auto;
+	padding-top: 2%;
+	min-height: 88vh;
+}
+
+.goBack{
+    text-align: left;  
 }
 
 .button-link {
@@ -54,7 +59,7 @@ body {
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:0.75em;
+	font-size:1em;
 	padding:0.5em 1em;
 	text-decoration:none;
     text-shadow:0px 1px 0px #854629;
@@ -82,11 +87,350 @@ body {
 	cursor:pointer;
 	color:#ffffff;
     font-family:Arial;    
-	font-size:0.75em;
+	font-size:1em;
 	padding:0.5em 1em;
 	text-decoration:none;
     text-shadow:0px 1px 0px darkgrey;
     background-color: gray;
     opacity: 0.7;
     cursor: default; 
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.6;
+}
+::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    opacity: 0.6;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    opacity: 0.6;
+}
+/*===================== header styling =========================*/
+header {
+    display: inline-block;
+    color: rgb(238, 75, 0);
+    width: 100%;
+    height: 5vh;
+    min-height: 50px;
+    margin-left: 0;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 0;
+    box-shadow: 0 1px 4px rgba(41, 51, 57, 0.397);
+    font-size: 1.2em;
+}
+
+.logo-container{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    color: rgb(238, 75, 0);
+}
+
+.mainLogo {
+    height: 100%;    
+    vertical-align: top;
+}
+
+.user-nav{
+    width: 25%;
+    display: inline-block;
+    height: 99%;
+    text-align: right;
+}
+
+.hamburger{
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    text-align: right;
+}
+
+.login-icon{
+    position: relative;
+    top: 10%;
+    right: 2%;
+    height: 80%;
+}
+
+.sellPartButton {
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    background-color: #d0451b;
+    color: white;
+    padding: 1%;
+    border-radius: 5px;
+    margin-right: 2%;
+    padding: 2% 2%;
+    border: 2px solid #d0451b;
+    vertical-align: top;
+    position: relative;
+    top: 29%;
+    transform: translate(-50%,0);
+}
+
+.sellPartButton:hover{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #d0451b;
+}
+
+.cartDivIcon{
+    display: inline-block;
+    vertical-align: top;
+    height: 80%;
+}
+
+.cartDivIcon a{
+    position: relative;
+    text-decoration: none;
+    top: 14%;
+}
+
+.cartIcon{   
+    position: relative;
+    top: 10%;
+    height: 88%;
+}
+
+.cartCount{
+    position: relative;
+    top: -46%;
+    right: 50%;
+    font-weight: bold;
+    color: #bc3315;
+}
+/*==================== footer styling ===========================*/
+footer {
+    color: white;
+    display: inline-block;
+    width: 100%;
+    height: 5vh;
+    min-height: 50px;
+    background-color: rgb(32, 32, 32);
+}
+
+.legal {
+    position: relative;
+    bottom: 0px;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+}
+
+.footer {
+    color: white;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+.legal > p {
+    display: inline-block;
+    margin-right: 2%;
+    margin-bottom: 0;
+}
+/*==================== contact page styling ===========================*/
+.contact-us {
+    margin: 2vh 0;
+    min-height: 86vh;
+}
+
+.contact-us h1{
+    text-align: center;
+    font-weight: bold;
+	font-size: 30px;
+    margin: 0;
+}
+.contactPageContainer{
+    width: 90%;
+    box-sizing: border-box;
+    background-image:url("../../assets/images/contact_pig.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-position-x: left;
+    border: solid 3px black;
+    min-height: 660px;
+    margin-bottom: 2vh;
+}
+.contact-header {
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 2%;
+    text-align: center;
+	box-sizing: border-box;
+	color: rgba(28, 108, 237, 0.7);
+	font-family: Verdana, Geneva, sans-serif;
+    text-shadow: 0.5px 0.5px black;
+    background-color: rgba(255,255,255,.85);
+    border-radius: 15px;
+}
+.contact-header h3 {
+    font-size: 1.5rem;
+}
+.contactForm{
+	width: 50%;
+	display: inline-block;
+    height: 80%;
+    min-height: 550px;
+}
+.contactForm input, .contactForm textarea {
+    display: inline-block;
+    height: 5vh;
+    min-height: 35px;
+    width: 80%;
+    font-size: 1rem;
+    margin: 0 10%;
+    border-radius: 5px;
+    padding: 1%;
+    border-style: groove;
+    box-sizing: border-box;
+    opacity: 0.9;
+}
+.contactForm textarea {
+    min-height: 100px;
+}
+.contactForm button{
+	margin: 1% 0 2% 10%;
+	width: 80%;
+	font-size: 1.3rem;
+}
+.contactForm input[type=text]:focus, .contactForm input[type=email]:focus, .contactForm textarea:focus{
+    border: .2em solid #9C9D99;
+    background-color: #FFF;
+}
+.contactForm textarea.message{
+    height: 20vh;
+    resize: none;
+}
+.input-container{
+    width: 100%;
+}
+.input-container label{
+	display: block;
+    margin: 3% 0 1% 10%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgba(28, 108, 237, 0.9);
+}
+.contact_image{
+    border: solid black 5px;
+    border-radius:5%;
+    width: 60%;
+}
+.submitted{
+    text-align:center;
+    color:rgb(0, 131, 0);
+    text-shadow: 0.5px 0.5px darkgrey;
+}
+.errorMessageContactPage {
+    color: red;
+    text-align:center;
+}
+.errorMessageContactPage h3, .submitted h3{
+    background-color: rgba(255,255,255, 0.9);
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+/*==================== hamburger menu styling ===========================*/
+ 
+ #menu a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+ }
+ 
+ #menu a:hover {
+    color: rgb(224, 34, 0);
+ }
+ 
+ #menuToggle {
+    margin-top: 12px;
+    margin-left: 10px;
+    height: 100%;
+    z-index: 2;
+    -webkit-user-select: none;
+    user-select: none;
+ }
+ 
+ #menuToggle input {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 3; /* and place it over the hamburger menu */
+    -webkit-touch-callout: none;
+ }
+
+ #menuToggle span {
+    display: block;
+    width: 32px;
+    height: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    background:  rgb(206, 0, 17);
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+ }
+ 
+ #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+ }
+ 
+ #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+ }
+ 
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    z-index: 2;
+ } 
+ /*
+ #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    width: 2px;
+    height: 1px;
+    transform: rotate(0deg) scale(0.2, 0.2);
+ }
+ 
+ #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(-1px, -1px);
+ } */
+ 
+ #menu {
+   position: absolute;
+   width: 16%;
+   margin: -5% 0 0 -5%;
+   padding: 1%;
+   padding-top: 4%;
+   background: #ededed;
+   list-style-type: none;
+   z-index:1;
+   -webkit-font-smoothing: antialiased;   
+   border-radius: 7px;
+   box-shadow: 5px 10px 15px rgba(10,10,10,.5);
+   transform-origin: 0% 0%;
+   transform: translate(-100%, 0);
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+ }
+ 
+ #menu li {
+   padding: 2% 0;
+ }
+
+#menuToggle input:checked ~ ul {
+   transform: none;
 }

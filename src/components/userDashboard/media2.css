@@ -1,0 +1,334 @@
+@media only screen and (min-width: 1950px) {
+	.userDashboard .tabContent {
+		width: 70%;
+	}
+}
+@media only screen and (max-width: 950px) {
+	.buttonsContainer select {
+		font-size: 12px;
+	}
+	.draftEditContainer {
+	    right: 13px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.contactForm {
+		width: 100%;
+	}
+    .contact-header {
+        text-align: center;
+        width: 100%;
+    }
+    .input-container {
+    	width: 100%;
+    }
+    .input-container > input, .input-container > textarea  {
+		width: 80%;
+    }
+    .contactForm > button{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+	.contact-header{
+		margin: 0;
+		padding: 0 1%;
+	}
+	.contact-header h3 {
+		font-size: 1.3rem;
+	}
+	.input-container label,
+	.contactForm button {
+		font-size: 1rem;
+	}
+	.contactForm input, 
+	.contactForm textarea,
+	.buttonsContainer input,
+	.buttonsContainer select,
+	.dropZone p,
+	.searchBarContainer input,
+	.form-group label,
+    .form-group input, 
+    .form-group select,
+	.instruction,
+    .yearMakeModel select {
+        font-size: 14px;
+    }
+    .contactPageContainer {
+    	min-height: none;
+    }
+    .buttonContainer button, 
+    .buttonsContainer a{
+		font-size: 18px;
+	}
+	.legal {
+		font-size: 11px;
+	}	
+	.cartCount {
+		font-size: 14px;
+	}
+	#menu li {
+		font-size: 14px;
+	}	
+	.user-nav {
+		text-align: right;
+	}
+	.userDashboard h1,
+	.dashboardHeader h2{
+		font-size: 20px;
+		line-height: 40px;
+	}
+	.dashboardTabs .tabLinks {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+	.statContainer {
+		font-size: 1.5rem;
+    	margin: 4% 10%;
+	}
+	.listingColumns .title-listingId,
+	.dashboardPart .listingId,
+	.listingColumns .title-fitment,
+	.dashboardPart .fitment,
+	.listingColumns .title-partNumber,
+	.dashboardPart .dash-partNumber {
+		display: none;
+	}
+	.listingColumns .title-mainImage,
+	.dashboardPart .dash-mainImage {
+	    width: 20%;
+	}
+	.dash-mainImage {
+		padding-top: 5px;
+	}
+/*	.listingColumns .title-partNumber,
+	.dashboardPart .dash-partNumber {
+	    width: 20%;
+	}*/
+	.listingColumns .title-brand,
+	.dashboardPart .brand {
+	    width: 15%; 
+	}
+	.listingColumns .title-partName,
+	.dashboardPart .partName {
+	    width: 25%;
+	}
+	.listingColumns .title-price,
+	.dashboardPart .price {
+	    width: 20%;
+	}
+	.listingColumns .title-status,
+	.dashboardPart .statusUpdateContainer {
+	    width: 20%;
+	}
+	.draftEditContainer {
+	    left: 0;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+    .buttonsContainer input,
+	.dropZone p,
+	.form-group label,
+    .form-group input,    
+    .form-group select, 
+    .yearMakeModel select, 
+	.buttonsContainer select {
+        font-size: 12px;
+    }
+    .sellPartContainer .sellPartTitle {
+		font-size: 24px;
+	}
+	.aboutUsContainer{
+		text-align: center;
+		margin: 0;
+	}
+	.aboutUsContainer .users {
+	    height: 100%;
+	    width: 55%;
+	    margin: 3vmin 0;
+	}
+	.users:hover {
+	    box-shadow: 5px 10px 18px #888888;
+	}
+	.person {
+		width: 45%;
+	}
+	.infoContainer {
+		width: 55%;
+		height: 60vmin;
+		vertical-align: top;
+		padding-top: 20%;
+	}
+	.userName {
+		font-size: 1rem;
+		height: 3rem;
+		width: 90%;
+		margin: 0 auto;
+	}
+	.userRole {
+		font-size: 0.75rem;
+		height: 2rem;
+	}
+	.contactIcons .linkedInLink {
+		text-align: left;
+	}	
+	@keyframes bobble {
+	    0% {transform: translate(3px, 5px) rotate(1deg);}
+	    25% {transform: translate(-1px, -2px) rotate(-2deg);}
+	    50% {transform: translate(-2px, -3px) rotate(-3deg);}
+	    75% {transform: translate(2px, 2px) rotate(-1deg);}
+	    100% {transform: translate(3px, 5px) rotate(1deg);}
+	}
+	.listingColumns,
+	.dashboardPart .dash-partNumber,	
+	.dashboardPart .brand {
+		display: none;
+	}	
+	.dashboardPart .dash-mainImage {
+	    width: 40%;
+	    display: block;
+		max-height: 100px;
+	}
+	.dashboardPart .partName {
+	    width: 60%;
+	    padding: 5px;
+	    display: block;
+	    text-align: left;
+	    padding-left: 10px;
+	}
+	.dashboardPart .price {
+	    width: 60%;
+	    display: block;
+	    padding: 5px;
+	    text-align: left;
+	    font-weight: bold;
+	    padding-left: 10px;
+	}
+	.dashboardPart .statusUpdateContainer {
+	    width: 35%;
+	}
+	.dashboardPart {
+		height: 180px;
+	}
+	.dashboardTabs .tabLinks {
+    	font-size: 1rem;
+    	float: none;
+    	padding: 13px 5px;
+    }
+}
+
+@media only screen and (max-height: 550px) {
+	.aboutUsContainer{
+		text-align: center;
+		margin: 0 auto;
+	}
+	.aboutUsContainer .users {
+	    height: 100%;
+	    width: 55%;
+	    margin: 3vmin 0;
+	}
+	.users:hover {
+	    box-shadow: 5px 10px 18px #888888;
+	}
+	.person {
+		width: 45%;
+	}
+	.infoContainer {
+		width: 55%;
+		height: 60vmin;
+		vertical-align: top;
+		padding-top: 20%;
+	}
+	.userName {
+		font-size: 1rem;
+		height: 3rem;
+		width: 90%;
+		margin: 0 auto;
+	}
+	.userRole {
+		font-size: 0.75rem;
+		height: 2rem;
+	}
+	.contactIcons .linkedInLink {
+		text-align: left;
+	}	
+	@keyframes bobble {
+	    0% {transform: translate(3px, 5px) rotate(1deg);}
+	    25% {transform: translate(-1px, -2px) rotate(-2deg);}
+	    50% {transform: translate(-2px, -3px) rotate(-3deg);}
+	    75% {transform: translate(2px, 2px) rotate(-1deg);}
+	    100% {transform: translate(3px, 5px) rotate(1deg);}
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.buttonsContainer input,
+	.dropZone p,
+	.form-group label,
+    .form-group input,    
+    .form-group select, 
+    .yearMakeModel select,
+    .buttonsContainer select {
+        font-size: 11px;
+    }
+    .userDashboard .tabContent h2 {
+    	font-size: 1.6rem;
+    }
+}
+@media only screen and (max-width: 360px) {
+	.outerDiv {
+		width: 96%;
+		margin: 0 auto;
+	}	
+	.instruction {
+		font-size: 11px;
+	}	
+	.buttonsContainer select,
+	.legal {
+		font-size: 9px;
+	}	
+	.resultsBar {
+		font-size: 1em;
+	}
+	
+	.contact-us {
+		width: 96%;
+	}	
+	.contact-us > h1 {
+		font-size: 20px;
+	}
+	.contact-header h3,
+	.input-container label {
+		font-size: 14px;
+	}
+	.contactForm input, 
+	.contactForm textarea {
+		font-size: 12px;
+	}
+	.statContainer {
+		font-size: 1.3rem;
+	}
+	.dashboardPart {
+		height: 160px;
+	}
+	.confirmButton {
+		right: 45px;
+	}	
+}
+
+@media only screen and (max-width: 320px) {
+	.login-icon {
+		right: 12%;
+	}
+ 	.contact-us {
+		width: 86%;
+	}
+	.dashboardTabs .tabLinks {
+    	padding: 13px 3px;
+    }	
+}
+
+		 

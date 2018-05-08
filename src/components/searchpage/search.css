@@ -1,73 +1,101 @@
-/* body {
-    height: 100vh;
-    width: 100vw;
-    border: solid black 2px;
-    margin: 0 auto;
-    background-image: url("https://www.transparenttextures.com/patterns/binding-dark.png");
-    background-color: #616161;
-} 
-
-.header {
-    height: 8vh;
-    border: solid red 2px;
-    font-size: 65px;
-}*/
 
 .outerDiv {
-    border: solid black 1px;
-    width: 70%;
-    height: 25%;
+    width: 50%;
+    height: 35%;
+    min-height: 280px;
     border-radius: 10px;
     margin: auto;
     position: relative;
-    top: 45%;
-    transform: translate(0,-50%);
-    background-color: rgba(0, 0, 0, 0.25);
-    box-shadow: 3px 4px;
-    padding: 0.5%;
+    top: 26%;
+    padding: 0.5%;    
+    background-color: #9c1010;
 }
 
-.outerDiv .dropdownMenu {
+.dropdownMenu {
+    padding: 2%;
     border-radius: 10px;
     height: 100%;
     width: 100%;
-    background-color: rgb(255, 69, 69);
+    background-color: black;
+    box-sizing: border-box;
 }
 
 .buttonsContainer{
-    position: relative;
-    top: 40%;
-    transform: translate(0,-50%);
     width: 100%;
-    height: 30%;
+    /*height: 18vh;*/
+    height: 50%;
+    text-align: center;
+    margin-top: 1vh;
 }
 
 .buttonsContainer select {    
-    width: 21%;
-    height: 100%;
-    margin: 2%;
+    width: 28.3%;
+    height: 34%;
+    margin: 1% 2%;
     background: #d4d4d4;
-    font-size: 2em;
+    font-size: 16px;
+    border-radius: 10px;
+    border-width: 2px;
+    outline: none;
+}
+.searchBarContainer {
+    text-align: center;
+    height: 20%;
+    margin-top: 2vh;
 }
 
-.buttonsContainer .searchButton {    
-    border-radius: 5px;
-    background-color: rgb(244,67,54);
-    box-shadow: 2px 2px;
-    font-size: 2em;
-    height: 100%;
-    width: 20%;
+.searchBarContainer div{
+    position: absolute;
+    top:50%;
+    width: 100%;
+    height: 40%;
+    transform: translate(0,-50%);
 }
 
-.buttonsContainer .searchButton a {
-    color: white;
-    text-decoration: none;
+.buttonsContainer a {
+    font-size: 18px;
+    margin-top: 2vh;
+    border-radius: 10px;
+    height: 50px;
+    line-height: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
-.alternateSearch {
-    margin-top: 50px;
-    display: inline-block;
-    font-size: large;
-    color: white;
-    width: 60%;
+.searchBarContainer .searchName {
+    margin-top: 1%;
+    float: left;
+    width: 47%;
+    margin-left: 15%;
+}
+
+.searchBarContainer input {
+    font-size: 16px;
+    width: 93%;
+    height: 85%;
+    padding: 0 1%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: none;
+}
+
+.searchBarContainer input:focus {
+    box-shadow: 0 0 3pt 2pt rgba(2, 96, 247, 1);
+}
+
+.searchNumber {
+    float: right;
+    width: 48%;
+}
+
+.searchName {
+    float:left;
+    width: 48%;
+}
+
+.instruction {
+    margin: 1vh auto;
+    font-size: 14px;
+    text-align: center;
+    color: #baba28;
 }

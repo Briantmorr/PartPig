@@ -97,7 +97,7 @@
 .rs-container .rs-scale span ins {
     color: #333;
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-top: 20px;
     text-decoration: none;
 }
@@ -113,7 +113,7 @@
     transform: translate(-50%, -114%);
     left: 13px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 4px 8px;
 }
 .rs-container.disabled .rs-tooltip {

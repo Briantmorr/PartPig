@@ -1,0 +1,107 @@
+@media only screen and (max-width: 950px) {
+    .accountDetails_Button{
+        font-size: 0.7em;
+    }
+    .contactDetails-container {
+        width: 80%;
+    }
+    .scrollingImgColumn:nth-child(6), .scrollingImgColumn:nth-child(7) {
+        display:none;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .errorMessageContainer{
+        text-align:center;
+        width:90vw;
+    }
+    .contactDetails-container {
+        width: 90vw;
+    }
+    .noResultsMessage {
+        width: 90vw;
+    }
+    .searchAgain {
+        
+        width: 80%;
+    }
+    .accountDetails_Button{
+        font-size: 0.6em;
+    }
+}
+
+
+@media only screen and (max-width: 550px) {
+    .contactDetails-container h1{
+        font-size:1.5em;
+    }
+    .contactDetails-container h2{
+        font-size:1em;
+    }
+    .accountDetails_Button{
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .contactDetails-container .form-group{
+        margin:2%;
+        width:46% !important;
+        padding:8px 0;
+    }
+    /* .formFields{
+        margin:auto;
+    } */
+    .signUpFormErrorMessage {
+        font-size: 1.2em;
+    }
+    .scrollingImgColumn:nth-child(4), .scrollingImgColumn:nth-child(5) {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .contactDetails-container {
+        width: 85%;
+    }
+	#errorHeader{
+        font-size:3.5em;     
+     }
+     .errorMessageContainer p{
+        font-size: 1.8em;
+    }
+    .startModal{
+        height: 75%;
+        top:55%;
+    }
+}
+@media only screen and (max-width: 360px) {
+    #errorHeader{
+        font-size:2.5em;   
+     }
+     .contactDetails-container {
+        width: 90%;
+    }
+}
+
+
+@media only screen and (min-width: 1920px) { 
+   
+    .signUpFormErrorMessage {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 950px) { 
+  
+    .signUpFormErrorMessage {
+        font-size: 1.2em;
+    }
+}
+
+/* media query to remove modal for iphone */
+@supports (-webkit-overflow-scrolling: touch) {
+    .fadeOverlay{
+        display:none;
+    }
+}
+  

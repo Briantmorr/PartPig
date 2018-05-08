@@ -1,0 +1,21 @@
+@media only screen and (max-width: 768px) {
+	.login-container {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .login-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .signUp_Message {
+        font-size: 0.8em;
+    }
+    .loginForm {
+        width: 90%;
+    }
+}
+

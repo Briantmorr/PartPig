@@ -1,7 +1,260 @@
-
 .part{
     width: 100%;
     height: 100%;
 }
 
+/*======================== image gallery styling =================*/
+.imageContainer{
+    display: inline-block;    
+    width: 16vw;
+    height: 16vw;
+    vertical-align: top;
+    text-align: center;
+}
 
+.imageContainerFilter{
+    width: 13vw;
+    height: 13vw;
+}
+
+.imageDetailsContainer{
+    display: inline-block;
+    width: 21vw;
+    height: 21vw;
+    vertical-align: top;
+    text-align: center;
+    margin: 3%;
+}
+
+.imageCartContainer{
+    display: inline-block;
+    width: 8vw;
+    height: 8vw;
+    text-align: center;
+}
+
+.imageList{    
+    margin: 4% 0;
+}
+
+.imageList img{
+    height: 4vw;
+    width: 4vw; 
+    margin: 0 .5%; 
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.mainImage{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.mainImageDetails{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.mainImageImg{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+/*=============================== pagination styling ===============================*/
+.pagesContainer{
+    width: 100%;
+    text-align: center;
+    margin: 5% 0;
+}
+
+.pageButton{
+    border: 1px solid lightgrey;
+    padding: 0.5% 0.8%;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.pageButton:hover{
+    background-color: crimson;
+    color:white;
+}
+
+.pageButtonActive{
+    background-color: #d0451b;
+    color:white;
+}
+/*=========================== part info styling ==============================*/
+.productContainer{
+    position: relative;
+    display: inline-block;
+    width: 100%;    
+    height: 8vw;
+    margin-top: 5%;
+    padding: 1%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.productContainer > p:last-child{
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    color:darkblue;
+    font-size: 1.5em;
+}
+
+.productContainer a{
+    margin-left: 10px;
+    text-decoration:none;
+}
+
+.productDetailsContainer{
+    display: inline-block;
+    width: 60%;
+    height: 80%;
+    font-size: 1.5em;
+    margin-top: 3%;
+    padding: 1%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.productCart{
+    font-size: 0.8vw;
+    display: inline-block;
+    width: 82%;
+    padding: 1%;
+    box-sizing: border-box;
+    text-align: left;
+    vertical-align: top;
+}
+
+.productCart button{
+    float: right;
+}
+
+.share{
+    text-align: right;
+    font-size: 0.75em;
+    margin-bottom: 2%;
+}
+
+.share img{
+    margin-left: 0.5%;
+}
+
+.productDetailsContainer h3{
+    font-size: 2em;
+}
+
+.partNumber{
+    float: right;
+}
+
+.productTitle{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.productPrice{
+    width: 100%;
+    color:darkblue;
+    font-size: 1.3em;
+}
+
+.editable{
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 0.3%;
+}
+
+.editMessage{
+    float: right;
+}
+
+.addButton {
+    float: right;
+    width: 47%;
+    text-align: center;
+    font-size: 0.7em;
+    margin-right: 2%;
+}
+
+.editButton {
+    float: right;
+    width: 15%;
+    text-align: center;
+    font-size: 0.6em;
+    margin-right: 1%;
+}
+
+.errorPrice{
+    color: red;
+    margin-left: 1%;
+    font-size: .7em;
+    font-weight: bold;
+}
+
+/*======================= part list styling =========================*/
+
+.partList{
+    display: inline-block;
+    width: 100%;
+    height: 100%;    
+}
+
+.partListFilter{
+    width: 83%;
+    margin-left: 2%;
+    font-size: .85em;
+}
+
+.partList::-webkit-scrollbar {
+    display: none;
+}
+
+.resultsBar{
+    padding: 1% 2.5% 1% 2.5%;
+    font-size: 1.2em;
+    background-color: black;
+    color: whitesmoke;
+    margin-top: 1%;
+}
+
+.resultsBar button{
+    margin-right: 2%;
+}
+
+.singlePart{
+    display: inline-block;    
+    vertical-align: top;
+    width: 22%;
+    height: 45%;
+    margin-top: 2%;
+    padding: 1%;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    margin: 1.5%;
+}
+
+.singlePart:hover{    
+    box-shadow: 5px 10px 18px #888888;
+}
+
+/*=======================  sorter styling ================================*/
+.sorterContainer{
+    float: right;
+    width: 50%;    
+    text-align: right;
+}
+
+.sorterContainer select{
+    padding: 1%;
+    box-sizing: content-box;    
+    font-size: 1em;
+}

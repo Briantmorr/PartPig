@@ -1,0 +1,33 @@
+.errorContainer{
+    min-height: 86.2vh;
+
+}
+
+.errorMessageContainer{
+    text-align:center;
+    width:70vw;
+    margin:auto;
+    margin-top: 5vh;
+    border: solid .5vw black;
+}
+.errorMessageContainer p{
+    font-size: 2em;
+}
+.errorTitle{
+    background-color:lightcoral;
+    height: 30%;
+    border-bottom: solid .3vw black;
+}
+
+#errorHeader{
+   line-height: 30%;
+   font-size:4em;
+   font-weight: bold;
+   display: inline-block;
+}
+.feedbackBtn{
+    font-size:2em;
+}
+.errorButtonSpacing{
+    margin:1% 5%;
+}

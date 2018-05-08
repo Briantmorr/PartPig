@@ -1,9 +1,72 @@
 .login-container {
-    width: 70%;
-    height: 75%;
-    margin: auto;
-    margin-top: 2%;
-    padding: 1%;
     box-sizing: border-box;
     text-align: center;
+    margin: 2vh auto;
+    width: 60vw;
+    min-height: 86vh;
+}
+/*======================== login form styling =============================*/
+.loginForm {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    margin: 1.5rem 0;
+    padding: 0 4%;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(41,51,57,.5);
+}
+
+.loginTitle {
+    font-size: 2rem;
+}
+
+.loginForm form {
+    margin: 2rem 0;
+}
+
+.loginForm label {
+    float: left;
+    font-size: 1.5rem;
+}
+
+.loginForm input[type=text], .loginForm select, .loginForm input[type=password] {
+    width: 100%;
+    padding: 2% 2%;
+    margin: 2% 0;
+    font-size: 1.3rem;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.loginForm input[type=text]:focus, 
+.loginForm input[type=password]:focus {
+    box-shadow: 0 0 2pt 1pt rgba(108, 163, 252, 1);
+}
+
+.loginForm input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 2% 2%;
+    margin-top: 5%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.loginForm input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.loginFormErrorMessage {
+    color: #ff5555;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 1.5rem;
 }

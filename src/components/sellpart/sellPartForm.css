@@ -1,0 +1,227 @@
+.sellPartContainer {
+    margin: 2vh auto;
+    width: 60vw;
+    min-height: 86vh;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(41,51,57,.5)
+}
+
+.sellPartContainer .sellPartTitle{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.sellPartContainer .help-block{
+    font-size: 0.8rem;
+}
+
+.buttonContainer {
+    margin: 2% auto;
+    width: 100%;
+    text-align: center;    
+}
+
+.buttonContainer button {
+    font-size: 1.2rem;
+}
+
+.sellPartForm{
+    padding: 1%;
+}
+
+.makeModelYearContainer{
+    font-size: 1rem;
+}
+
+.makeModelYearContainer h1{
+    font-size: 1.2rem;
+}
+
+.makeModelYearContainer .help-block{
+    font-size: 0.8rem;
+}
+.checkboxItem {
+	position: relative;
+	box-sizing: border-box;
+	background: #ffffff;
+}
+
+.checkboxItem p {
+	border-top: 1px solid #c8c7cc;
+	margin: 0 0 0 8px;
+	height: 44px;
+	color: #000000;
+	font-size: 15px;
+	line-height: 44px;
+}
+
+.checkboxItem:nth-child(1) p {
+	border: 0;
+}
+
+.checkboxItem input[type="checkbox"] {
+	display: none;	
+}
+
+.partDetailsSellForm{
+    width: 100%;
+    font-size: 1rem;
+}
+
+.partDetailsSellForm h1{
+    font-size: 1.2rem;
+}
+
+.toggleButton {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 9px;
+	margin: auto;
+	width: 51px;
+	height: 31px;
+}
+
+.toggleButton label,
+.toggleButton i {
+	box-sizing: border-box;
+	display: block;
+	background: #ffffff;
+}
+
+.toggleButton label {
+	width: 51px;
+	height: 32px;
+	border-radius: 32px; 
+	border: 2px solid #e5e5e5;
+	transition: all 0.30s ease;
+}
+
+.toggleButton i {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 28px;
+	height: 28px;
+	border-radius: 28px;
+	box-shadow: 0 0 1px 0 rgba(0,0,0, 0.25),
+				0 3px 3px 0 rgba(0,0,0, 0.15);
+	background: #ffffff;
+	transition: all 0.3s cubic-bezier(0.275, -0.450, 0.725, 1.450);
+}
+
+.checkboxItem input[type="checkbox"]:active + .toggleButton i {
+	width: 35px;
+}
+
+.checkboxItem input[type="checkbox"]:active + .toggleButton label,
+.checkboxItem input[type="checkbox"]:checked + .toggleButton label {
+	border: 16px solid #4cd964;
+}
+
+.checkboxItem input[type="checkbox"]:checked + .toggleButton i {
+	left: 21px;
+}
+
+.checkboxItem input[type="checkbox"]:checked:active + .toggleButton label {
+	border: 16px solid #e5e5e5;
+}
+
+.checkboxItem input[type="checkbox"]:checked:active + .toggleButton i {
+	left: 14px;
+}
+
+.yearMakeModel{
+    width: 100%;
+    
+}
+
+.yearMakeModel select{
+    margin: 1%;
+    width: 31%;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 1%;
+}
+/*=========================== image uploader styling ============================ */
+.uploadImages{
+    font-size: 1rem;
+}
+.uploadImages h1{
+    font-size: 1.2rem;
+}
+.dropZone {
+    width: 20%;
+    height: 16vh;
+    min-height: 100px;
+    display: inline-block;
+    background-color: lightgray;
+    text-align: center;
+    border: 0.25rem dashed darkslategray;
+    vertical-align: top;
+    position: relative;
+    cursor: pointer;
+}
+.dropZone p {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    margin: 0;
+}
+.imageUploadContainer{
+    width: 100%;
+    padding: 1%;
+    box-sizing: border-box;
+}
+.imgThumbContainer {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.4%;
+    width: 30%;
+    height: 12vmin;
+    border: 1px solid black;
+    vertical-align: top;
+}
+.displayImages{
+    width: 70%;
+    height: 16vh;
+    min-height: 100px;
+    overflow-y: auto;
+    display: inline-block;
+    border: 0.25rem dashed darkslategray;
+    margin-left: 2vmin;
+}
+.imgThumb {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.fileInput{
+    width: 25%;
+    height: 40px;
+}
+
+.imageSection .help-block{
+    font-size: 0.8rem;
+}
+
+.removeImg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2vmin;
+    height: 2vmin;
+    font-size: 1.2vmin;
+    font-weight: bold;
+    padding: 0;
+}

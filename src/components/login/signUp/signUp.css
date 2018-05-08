@@ -1,0 +1,118 @@
+.outer-container {
+    box-sizing: border-box;
+    min-height: 84vh;
+    margin: 3vh auto;
+ }
+ 
+ .inner-container{
+    border-radius: 10px;
+    width: 40%;
+    margin: 0 auto;
+    padding:2%;
+    box-shadow: 0 1px 4px rgba(41,51,57,.5);
+    background-color: rgb(255, 255, 255);
+    min-height: 500px;
+ }
+ 
+ .inner-container > form > input {
+    width: 100%;
+    padding: 2% 2%;
+    font-size: 1.3rem;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+ }
+ 
+ .inner-container > .goBack {    
+    padding-top: 2%;
+ }
+
+ .inner-container form {
+    padding: 1%;
+ }
+ 
+ .inner-container form > label {
+    float: left;
+    margin: 4% 0 1% 0;
+    font-size: 1.5rem;
+ }
+ 
+.inner-container .submitButton {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.signUp_Container{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.buttonText {
+    color: #1d1d1d;
+    border: solid black 2px;
+    padding: 1%;
+    font-size: 200%;
+    border-radius: 5px;
+    background-color: #59d0ff;
+}
+.signUp_Button{
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.contactDetails-container{
+    text-align:center;
+    width:80%;
+    font-size:1.2em;
+    margin:auto;
+    margin-top: 5%;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding:2%;
+    box-shadow: 0 1px 4px rgba(41,51,57,.5);
+    background-color: rgb(255, 255, 255);
+    min-height: 500px;
+}
+.contactDetails-container .formFields{
+    display:inline-block;
+    margin:auto;
+    font-size: 2em;
+    text-align:left;
+}
+.contactDetails-container .form-group input{
+    padding: 1px;
+  
+}
+.accountDetails_Button{
+    width: 43%;
+    margin: 0 4%;
+    padding: 0.4% 1%;
+    font-size: 0.8em;
+}
+.formFields label{
+    text-align: left;
+}
+
+.createAccountHeader{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.signUpFormErrorMessage{
+    color: #ff5555;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.loginMessage{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.loginMessage > h3 {
+    font-size: 1.5rem;
+}

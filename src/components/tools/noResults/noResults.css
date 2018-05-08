@@ -1,0 +1,39 @@
+.noResultsContainer {
+    width: 100%;
+    background-image: url("./partpigbackground.jpg");
+    background: no-repeat;
+    background-size: cover;
+    text-align:center;
+}
+
+.noResultsMessage {
+    width: 70%;
+    height: 55%;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    margin: 0 auto;
+    padding: 1%;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(41,51,57,.5);
+    font-size: 2em;
+}
+
+.searchAgain {
+    width: 45%;
+    background-color: rgb(255, 94, 36);
+    color: white;
+    display: block;
+    padding: 1%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(41,51,57,.5)
+}
+
+.searchAgain:hover {
+    background-color:rgb(230, 61, 0);
+    color: white;
+}

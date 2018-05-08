@@ -1,245 +1,261 @@
 import React, {Component} from "react";
-import "./sellpart.css";
-
-import ImageUpload from '../imageUploader/imageUploader';
+import ImageUpload from './imageUploader';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import ListingSuccess from "../listingSuccess/listingSuccess";
-
-
+import Field from '../tools/field';
+import ListingSuccess from "./listingSuccess";
+import formInputs from './formData';
+import MakeDropDown from '../tools/dropdown/makeDropdown';
+import ModelDropDown from '../tools/dropdown/modelDropdown';
+import YearDropDown from '../tools/dropdown/yearDropdown';
+import data from '../searchpage/dataModel';
+import Loading from '../tools/loading/loading';
+import "./sellPartForm.css";
 
 class SellPartForm extends Component{
-
+    
     constructor(props){
         super(props);
-        this.state = {
-            form: {
-            part_name: '',
-            part_number: '',
-            fitment: '',
-            images: [],
-            part_condition: '',
-            description: '',
-            username: '',
-            password: '',
-            brand: '',
-            year: '',
-            make: '',
-            model: '',
-            price: ''
-            }
+
+        this.userId = localStorage.getItem('user');
+        if(!this.userId){
+            props.history.push('/login');
         }
-
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.validate = this.validate.bind(this);
-        this.handleImageChange = this.handleImageChange.bind(this);
-    }      
-
-    handleInputChange(event) {
-        const { value, name } = event.target;
-        const { form } = this.state;
-        form[name] = value;
-        this.setState({
-            form: {...form}
-        });
+        this.state = { 
+            isLoading: false,
+            part:{
+                "make": 'default',
+                "model": 'default',
+                "year": 'default',
+                "part_name": '',
+                "brand": '',
+                "price_usd": 0,
+                "part_condition": '1',
+                "description": '',
+                "category_id": 1,
+                "images": [],
+                "part_number": '',
+                "seller_id": this.userId
+            },            
+            partErrors:{},
+            isLoading: false
+        }
+        this.catchMakeSelect = this.catchMakeSelect.bind(this);
+        this.catchModelSelect = this.catchModelSelect.bind(this);
+        this.catchYearSelect = this.catchYearSelect.bind(this);
     }
-
-    handleImageChange(e) {
-        e.preventDefault();
     
-        let reader = new FileReader();
-        let file = e.target.files[0];
-        
-        reader.onloadend = () => {
-            const { form } = this.state;
-            form['images'].push({imagePreviewUrl:reader.result, file:file});
-            this.setState({
-                form: {...form}
-            });         
-        }
-    
-        reader.readAsDataURL(file);
-      }
-
-    handleSubmit(event) {
-        const newPartData = this.state.form;
-        console.log('handle uploading-', this.state.file)
+    handleSellPartSubmit(event){
         event.preventDefault();
-        const listingFormData = {
-                "make":  newPartData.make,
-                "model":  newPartData.model,
-                "year":  newPartData.year,
-                "part_name":  newPartData.part_name,
-                "brand": newPartData.brand,
-                "price_usd":  newPartData.price,
-                "location": "",
-                "part_condition":  newPartData.part_condition,
-                "description":  newPartData.description,
-                "milage_used": "",
-                "category":  newPartData.category,
-                "images": {imagePreviewUrl:newPartData.imagePreviewUrl, file:newPartData.file},
-                "seller_id":  newPartData.username,
-                "part_number":  newPartData.part_number,
-            }
-        console.log('handleSubmit called, form values are:', listingFormData);
-
-        this.sendToServer(listingFormData);
-
+        if(this.validateFields()){
+            this.setState({
+                isLoading: true
+             });
+        }
     }
 
-    sendToServer(listingFormData){
-
-            const url = "http://localhost:8000/teampartpig/src/assets/php/listPart.php";
+    componentDidUpdate(){
+        
+        if(this.state.isLoading){
+            const url = "/assets/php/listNewPart/processSellPartForm.php";
+            
             axios({
                 url: url,
                 method: 'post',
-                data: {listingFormData}, 
+                data: this.state.part, 
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).then(resp=>{
-                console.log("Server Response:", resp);
-                // this.props.history.push('/listingsuccess');
+                this.props.history.push(`/partdetails/${resp.data.data[0]}/newPart/true`);
             }).catch(err => {
-                console.log("There was an error:");
-                // this.props.history.push('/listingsuccess');
+                // console.log("There was an error:");
+                this.props.history.push('/error');                
+
             });
+        }
     }
 
-    validate(listingFormData){
-        const {partName, price} = listingFormData;
-        const errors = {};
-        if(!listingFormData.partName){
-            console.log('Please input a part name');
-        }
-        if(!price){
-            console.log(errors);
-        }
-    
-        console.log("no errors found");
+    handleImageChange(files) {
+        
+        const newPartErrors = {...this.state.partErrors};       
+        delete newPartErrors['images'];            
+        
+        for(let i=0; i < files.length; i++){
+            let reader = new FileReader();
+            let file = files[i];
+        
+            reader.onloadend = () => {
+                const { part } = this.state;
+                part['images'].push({imagePreviewUrl:reader.result, file:file});
+                this.setState({
+                    part: {...part},
+                    partErrors:newPartErrors
+                });         
+            }
+        
+            reader.readAsDataURL(file);            
+        }        
     }
-  
+
+    deleteImageChange(event) {
+        
+        const element = event.target;
+                    
+        const { part } = this.state;
+        const index = this.containsImage(element,part.images);
+        if(index !== -1){
+            const newPartErrors = {...this.state.partErrors};
+            if(this.state.part.images.length <= 1){
+                newPartErrors['images'] = 'You need to add at least one image';           
+             }else{
+                 delete newPartErrors['images'];            
+             }
+            part['images'].splice(index,1);
+            this.setState({
+                part: {...part},
+                partErrors:newPartErrors
+            });
+        }       
+    }
+
+    containsImage(obj, list) {
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].imagePreviewUrl === obj.name) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    handlePartInputChange(event){
+        const {value,name} = event.target;
+        const newPart = {...this.state.part};
+        newPart[name] = value;
+        this.setState({
+            part:newPart
+        });
+    }
+
+    partHandleOnBlur(event){
+        const {name,value,placeholder,required} = event.target;
+        const newPartErrors = {...this.state.partErrors};
+        if(value ==='' && required){           
+            newPartErrors[name] = placeholder + ' is required';           
+        }else{
+            delete newPartErrors[name];            
+        }
+        this.setState({
+            partErrors:newPartErrors
+        });
+    }
+
+    catchMakeSelect(selectedMake){
+        const caughtMake = selectedMake;
+        const newPart = {...this.state.part};
+        newPart['make'] = caughtMake;
+        this.setState({
+            part: newPart
+        });
+    }
+
+    catchModelSelect(selectedModel){
+        const caughtModel = selectedModel
+        const newPart = {...this.state.part};
+        newPart['model'] = caughtModel;
+        this.setState({
+            part: newPart
+        });        
+    }
+
+    catchYearSelect(selectedYear){        
+        const caughtYear = selectedYear
+        const newPart = {...this.state.part};
+        newPart['year'] = caughtYear;
+        const newPartErrors = {...this.state.partErrors};
+        delete newPartErrors['year']; 
+        this.setState({
+            part: newPart,
+            partErrors:newPartErrors
+        });
+    }
+
+    validateFields(){
+        const newPartErrors = {...this.state.partErrors};
+        if(this.state.part.images.length === 0){
+           newPartErrors['images'] = 'You need to add at least one image';           
+        }else{
+            delete newPartErrors['images'];            
+        }
+        
+        if(this.state.part.year === 'default'){
+            newPartErrors['year'] = 'You need to choose make, model and year';           
+        }else{
+            delete newPartErrors['year'];            
+        }
+        
+        if(this.state.part.part_name === ''){
+            newPartErrors['part_name'] = 'Part name is required';           
+        }else{
+            delete newPartErrors['part_name'];            
+        }
+
+        if(this.state.part.price_usd === 0){
+            newPartErrors['price_usd'] = 'Price is required';           
+        }else{
+            delete newPartErrors['price_usd'];
+        }              
+        
+        this.setState({
+            partErrors:newPartErrors
+        });
+
+        return (Object.keys(newPartErrors).length === 0);
+    }
+
     render() {
-        const { part_name, part_number, fitment, images, part_condition, description, username, password, brand, price, category, year, make, model } = this.state.form;
+        
+        if (this.state.isLoading) {
+            return(<div className='container'>
+                        <Loading />
+                    </div>
+                   );
+        }
 
+        const fields = formInputs.map((field,index) => {
+            return <Field key={index} {...field} error={this.state.partErrors[field.name]} handleOnBlur={this.partHandleOnBlur.bind(this)} handleInputChange={this.handlePartInputChange.bind(this)} value={this.state.part[field.name] || ''}/>
+        });
+        
+        
         return(
-                <div className="sellPartForm">
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="part-details">
-                                <h1>Part Details</h1>
-                                <div className="partName">
-                                    <label htmlFor="part_name">Part Title<a className="required">*</a></label>
-                                    <input onChange={this.handleInputChange} value={part_name} name="part_name" type="text" />
-                                </div>
-                                <div className="price">
-                                    <label htmlFor="price">Price<a className="required">*</a></label>
-                                    <input onChange={this.handleInputChange} value={price} name="price" type="text" />
-                                </div>
-                                <div className="partNumber">
-                                    <label htmlFor="part_number">Part Number</label>
-                                    <input onChange={this.handleInputChange} value={part_number} name="part_number" type="text" />
-                                </div>
-                                <div className="brand">
-                                    <label htmlFor="brand">Brand</label>
-                                    <select onChange={this.handleInputChange} value={brand} name="brand" type="text">
-                                        <option value="brand">Select Brand</option>
-                                        <option value="Perrin">Perrin</option>
-                                        <option value="Cosworth">Cosworth</option>
-                                        <option value="Forman">Forman</option>
-                                    </select>    
-                                </div>
-                                <div className="category">
-                                    <label htmlFor="category">Category</label>
-                                    <select onChange={this.handleInputChange} value={category} name="category" type="text">
-                                        <option value="category">Select Category</option>
-                                        <option value="Exhaust">Exhaust</option>
-                                        <option value="Suspension">Suspension</option>
-                                    </select>    
-                                </div>
-                            </div>    
-                            <div className="fitment">
-                                <h1>Vehicle Fitment</h1>    
-                                <div className="partYear">
-                                    <label htmlFor="year">Year</label>
-                                    <select onChange={this.handleInputChange} value={year} name="year" type="text">
-                                    <option value="year">Select Year</option>
-                                    <option value="2019">2019</option>
-                                    <option value="1904">1904</option>
-                                    </select>
-                                </div>
-                                <div className="partMake">
-                                    <label htmlFor="make">Make</label>
-                                    <select onChange={this.handleInputChange} value={make} name="make" type="text">
-                                        <option value="make">Select Make</option>
-                                        <option value="Subaru">Subaru</option>
-                                        <option value="Ferrari">Ferrari</option>
-                                        
-                                    </select>
-                                </div>
-                                <div className="partModel">
-                                    <label htmlFor="model">Model</label>
-                                    <select onChange={this.handleInputChange} value={model} name="model" type="text">
-                                        <option value="model">Select Make</option>
-                                        <option value="Impreza WRX STI">Impreza WRX STI</option>
-                                        <option value="Focus">Focus</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="part-condition">
-                            <h1>Condition</h1>
-                                <div className="conditionRating">
-                                        <label htmlFor="part_condition">Condition<a className="required">*</a></label>
-                                        <select onChange={this.handleInputChange} value={part_condition} name="part_condition" type="text">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        
-                                    </select>
-                                </div>
-                                <div className="conditionDetails">
-                                    <label htmlFor="description">Condition Details</label>
-                                    <textarea onChange={this.handleInputChange} value={description} name="description" type="text" />
-                                </div>
-                            </div>
-                            <div className="imageUpload">
-                                <h1>Pictures</h1>
-                                <ImageUpload images={images} handleImageChange={this.handleImageChange}/>
-                            </div>                               
-                            <div className="saleOptions">
-                                <h1>Pickup and Delivery</h1>
-                                <div className="checkboxItem">
-                                    <p>Local Pickup Available</p>
-                                    <input onChange={this.handleInputChange} id="localPickup" value="false" name="localPickup" type="checkbox"/>
-                                    <div className="toggleButton">
-                                        <label htmlFor="localPickup"><i></i></label>
-                                    </div>
-                                </div>
-                                <div className="checkboxItem">
-                                    <p>Shipping Available</p>
-                                    <input onChange={this.handleInputChange} id="shippingAvailable" value="false" name="shippingAvailable" type="checkbox"/>
-                                    <div className="toggleButton">
-                                        <label htmlFor="shippingAvailable"><i></i></label>
-                                    </div>
-                                </div>
-                                <div className="checkboxItem">
-                                    <p>Returns Accepted</p>
-                                    <input onChange={this.handleInputChange} id="returnsAccepted" value="false" name="returnsAccepted" type="checkbox"/>
-                                    <div className="toggleButton">
-                                        <label htmlFor="returnsAccepted"><i></i></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="buttonContainer">
-                                <button className="postPart">List Your Part Now!</button>
-                            </div>
-                        </form>
-                </div>          
-                );
+            <div className="sellPartContainer">
+                <h1 className="sellPartTitle">List a part for sale!</h1>
+                <form className="sellPartForm">
+                    <div className="partDetailsSellForm">
+                        <h1>Part Details</h1>
+                        {fields}
+                    </div>
+                    <div className='makeModelYearContainer'>    
+                        <h1>What model does this part fit? *</h1>
+                        <div className="yearMakeModel">
+                            <MakeDropDown className="makeDropdown" data={data} makeSelect={this.catchMakeSelect} currentMake={this.state.part.make}/>
+                            <ModelDropDown className="modelDropdown" data={data} value={this.state.part.model} modelSelect={this.catchModelSelect} selectedMake={this.state.part.make} selectedModel={this.state.part.model}/>
+                            <YearDropDown className="yearDropdown" data={data} value={this.state.part.year} yearSelect={this.catchYearSelect} selectedMake={this.state.part.make} selectedModel={this.state.part.model}/>                            
+                        </div> 
+                        <div className="help-block">{this.state.partErrors['year']}</div>                                                      
+                    </div> 
+                    <div className='uploadImages'>
+                        <h1>Upload Images *</h1>
+                        <ImageUpload error={this.state.partErrors['images']} images={this.state.part.images} handleImageChange={this.handleImageChange.bind(this)} deleteImage={this.deleteImageChange.bind(this)}/>
+                    </div>   
+                    <div className="buttonContainer">
+                        <button type='button' onClick={this.handleSellPartSubmit.bind(this)} className="button-link">List Part</button>
+                    </div>
+                </form>
+            </div>
+        );
     
     }
-}    
+}   
 
 export default SellPartForm;

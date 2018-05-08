@@ -1,0 +1,15 @@
+.statusUpdateDropdown {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    height: 20%;
+}
+
+.statusUpdateDropdown select {
+   font-size: 1rem;
+   padding: 0.2rem;
+   position: absolute;
+   right: 0.5rem;
+}
+
+
