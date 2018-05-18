@@ -5,7 +5,7 @@
 PartPig is an ecommerce platform for selling used car parts.
 
 ## Motivation
-PartPig exists to fill the gap in connecting the buyer and the seller in a way that is user friendly and convenient.
+PartPig exists to fill the gap in connecting the buyer and the seller by focusing on User Interface and User Experience (UI/UX).
 
 ## Usage
 PartPig is still in beta. Because of that we focused most of the parts for sale under 
@@ -15,8 +15,8 @@ PartPig is still in beta. Because of that we focused most of the parts for sale 
 
 Please search these categories to get a better experience.
 
-### Project
-view this project [live](partpig.briantmorris.com)
+## Project
+view this project [live](http://partpig.briantmorris.com)
 
 
 ## Features
@@ -42,4 +42,4 @@ view this project [live](partpig.briantmorris.com)
 [Briantmorr](https://github.com/Briantmorr)
 
 ## License
-This project is licensed under the MIT License © [Brian Morris](https://briantmorris.com)
+This project is licensed under the MIT License © [Brian Morris](http://briantmorris.com)
